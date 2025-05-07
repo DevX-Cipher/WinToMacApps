@@ -18,7 +18,7 @@ This project demonstrates how to cross-compile a simple macOS executable on Wind
 ```
 MacCross/
 ├── CMakeLists.txt
-├── hello.c
+├── C-Example
 ├── macosx-toolchain.cmake
 ├── build/        # Generated after configuring
 ```
