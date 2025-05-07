@@ -30,7 +30,7 @@ MacCross/
 
 - `C-Example/hello.c` — A simple "Hello, world" C program.
 - `ObjC-Example/main.m` — Entry point for the Objective-C example.
-- `ObjC-Example/MyClass.m` — An Objective-C class implementation.
+- `ObjC-Example/AppDelegate.m` — An Objective-C class implementation.
 - `ObjC-Example/AppDelegate.h` — A header file used in the Objective-C example.
 - `CMakeLists.txt` — Standard CMake build file.
 - `macosx-toolchain.cmake` — Custom CMake toolchain file for macOS cross-compilation.
