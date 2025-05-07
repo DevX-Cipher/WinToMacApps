@@ -1,4 +1,4 @@
-# Cross Compile macOS Executables on Windows with CMake + Clang
+# Cross-Compile macOS Apps (CLI + GUI) on Windows with Clang & CMake
 
 This project demonstrates how to cross-compile a simple macOS executable on Windows using Clang, CMake, and Ninja.
 
