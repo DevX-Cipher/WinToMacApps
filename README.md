@@ -9,41 +9,50 @@ This project demonstrates how to cross-compile a simple macOS executable on Wind
 - CMake (version 3.10+)
 - A macOS SDK (e.g. `MacOSX10.15.sdk`) placed locally on disk
 
->**Note:** You must obtain the macOS SDK legally from a Mac. Redistribution is prohibited by Apples license.
+>**Note:** You must obtain the macOS SDK legally from a Mac. Redistribution is prohibited by Apple’s license.
 
 ---
 
-##  Project Structure
+## Project Structure
 
 ```
 MacCross/
 ├── CMakeLists.txt
-├── C-Example
+├── C-Example/
+├── ObjC-Example/
 ├── macosx-toolchain.cmake
 ├── build/        # Generated after configuring
 ```
 
 ---
 
-##  File Descriptions
+## File Descriptions
 
-- `hello.c` — A simple "Hello, world" C program.
+- `C-Example/hello.c` — A simple "Hello, world" C program.
+- `ObjC-Example/main.m` — Entry point for the Objective-C example.
+- `ObjC-Example/MyClass.m` — An Objective-C class implementation.
+- `ObjC-Example/AppDelegate.h` — A header file used in the Objective-C example.
 - `CMakeLists.txt` — Standard CMake build file.
 - `macosx-toolchain.cmake` — Custom CMake toolchain file for macOS cross-compilation.
 - `build/` — Directory where build files and output will be generated.
 
----
-
-##  Setup Instructions
-
-1. Download and extract [Clang for Windows](https://releases.llvm.org/).
-2. Place the macOS SDK (e.g. `MacOSX10.15.sdk`) in a known directory such as `C:/MacOSX10.15.sdk`.
-3. Make sure `clang.exe`, `clang++.exe`, and `ld.lld.exe` are in the same LLVM bin directory.
-4. Edit `macosx-toolchain.cmake` to set paths for:
-   - Clang compiler
-   - macOS SDK root
 
 ---
+
+---
+
+## Alternative: Manual Build Without CMake
+
+If you prefer not to use CMake, a `build.bat` script is provided to compile both examples directly using `clang`.
+
+### Usage
+
+1. Open `build.bat` and update the following variables to match your setup:
+   - `CLANG_PATH` — Path to your LLVM `bin` directory (e.g. `C:\\Program Files\\LLVM\\bin`)
+   - `SDK_PATH` — Path to your macOS SDK (e.g. `C:\\MacOSX10.15.sdk`)
+
+2. Run the script from the root project directory:
+
 
 ## Build Steps
 
@@ -56,13 +65,13 @@ cmake -G Ninja -DCMAKE_TOOLCHAIN_FILE=../macosx-toolchain.cmake ..
 cmake --build .
 ```
 
-If everything is set up correctly, you’ll get a Mach-O executable (`hello`) that can run on macOS.
+If everything is set up correctly, you’ll get Mach-O executables that can run on macOS.
 
 ---
 
 ## Verifying the Output
 
-Transfer the `hello` binary to a Mac and run:
+Transfer the generated binaries to a Mac and run:
 
 ```bash
 ./hello
@@ -76,6 +85,6 @@ Hello, world!
 
 ---
 
-##  License
+## License
 
 This project is provided for educational purposes only. macOS SDK usage and cross-compilation involving Apple platforms may be subject to Apple's software license agreements.
