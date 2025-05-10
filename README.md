@@ -1,6 +1,6 @@
+# Build macOS Apps on Windows (CLI + GUI + Qt)
 
-#  Build macOS Apps on Windows (CLI + GUI)  
-**Cross-compile real macOS executables (C, Objective-C, Cocoa GUI) using Clang, CMake, and Ninja on Windows.**
+**Cross-compile real macOS executables (C, Objective-C, Qt, Cocoa GUI) using Clang, CMake, and Ninja on Windows.**
 
 No Mac needed to build — just to run.
 
@@ -8,29 +8,28 @@ No Mac needed to build — just to run.
 
 ## What This Is
 
-This project is a Windows-based toolchain setup that lets you **build native macOS applications** — including **Cocoa-based GUI apps** — using Clang and the macOS SDK.
+This project is a Windows-based toolchain setup that lets you **build native macOS applications** — including **Cocoa- and Qt-based GUI apps** — using Clang and the macOS SDK.
 
-- Cmpile Objective-C and C source files on Windows  
+- Compile Objective-C, C, and Qt source files on Windows  
 - Use CMake + Ninja or a standalone script  
 - Build Mach-O binaries that run on real macOS  
-- Includes a full example of a Cocoa GUI app
+- Includes a full example of a Cocoa GUI app and Qt GUI app
 
 ---
 
-##  Requirements
+## Requirements
 
 To get started, you'll need:
 
 - [LLVM/Clang for Windows](https://releases.llvm.org/)
 - [Ninja build system](https://github.com/ninja-build/ninja/releases)
 - CMake (v3.10+)
-- macOS SDK (e.g. `MacOSX10.15.sdk`) extracted from a Mac
-
->  You must legally obtain the macOS SDK from a Mac. Redistribution is prohibited by Apple’s license.
-
+- [macOS SDK](https://github.com/phracker/MacOSX-SDKs/releases/tag/11.3)
+- [QtMacos-SDK](https://github.com/qt-creator/qt-creator/releases/tag/v17.0.0-beta1)
+- [Qt Example on GitHub](https://github.com/pyinstxtractor/Pyextract/tree/PyInstaller-Archive-Viewer)
 ---
 
-##  Project Structure
+## Project Structure
 
 ```
 MacCross/
@@ -41,11 +40,29 @@ MacCross/
 │   ├── main.m
 │   ├── AppDelegate.h
 │   └── AppDelegate.m
+├── Qt-Example/
+│   ├── main.cpp
+│   ├── mainwindow.cpp
+│   ├── mainwindow.h
+│   └── mainwindow.ui
 ├── macosx-toolchain.cmake
-├── build.bat         # Manual build script
+├── build-Objc.bat         # Manual build script (Objective-C)
+├── build-Qt.bat	  # Manual build script (Qt-aware)
 ├── build/            # Created during build
 ```
 
+---
+
+## Example: Environment Variables Setup (Required for Qt)
+
+Before using the Qt manual build script, set the following environment variables:
+
+```cmd
+set QT_DIR=F:\Qt\6.7.3\macos
+set QT_FRAMEWORKS=%QT_DIR%\lib
+set MACOSX_SDK_PATH=F:\MacOs-Stuff\MacOSX14.5.sdk
+set MACOSX_DEPLOYMENT_TARGET=11.0
+```
 ---
 
 ##  How to Use
@@ -61,17 +78,13 @@ cmake --build .
 
 ### Option 2: Manual Build Script (No CMake Required)
 
-Edit `build.bat` to match your environment:
+Edit `build-Objc.bat` or `build-Qt.bat` to match your environment, or ensure the necessary environment variables are set.
 
-```bat
-set CLANG_PATH=C:\Program Files\LLVM\bin
-set SDK_PATH=C:\MacOSX10.15.sdk
-```
+Then run the appropriate script:
 
-Then run:
-
-```bat
-build.bat
+```cmd
+build-Objc.bat   :: for Cocoa apps
+build-Qt.bat     :: for Qt apps
 ```
 
 ---
