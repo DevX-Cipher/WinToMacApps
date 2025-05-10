@@ -23,7 +23,7 @@ To get started, you'll need:
 
 - [LLVM/Clang for Windows](https://releases.llvm.org/)
 - [Ninja build system](https://github.com/ninja-build/ninja/releases)
-- CMake (v3.10+)
+- [CMake (v3.10+)](https://cmake.org/download/)
 - [macOS SDK](https://github.com/phracker/MacOSX-SDKs/releases/tag/11.3)
 - [QtMacos-SDK](https://github.com/qt-creator/qt-creator/releases/tag/v17.0.0-beta1)
 - [Qt Example on GitHub](https://github.com/pyinstxtractor/Pyextract/tree/PyInstaller-Archive-Viewer)
