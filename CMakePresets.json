@@ -1,0 +1,16 @@
+{
+  "version": 3,
+  "configurePresets": [
+    {
+      "name": "macos-cross",
+      "displayName": "macOS",
+      "description": "Cross-compile macOS apps from Windows using Clang and SDK",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/macos-cross",
+      "toolchainFile": "${sourceDir}/macosx-toolchain.cmake",
+      "environment": {
+        "CMAKE_VERBOSE_MAKEFILE": "ON"
+      }
+    }
+  ]
+}

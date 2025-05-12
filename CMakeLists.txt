@@ -7,4 +7,4 @@ cmake_minimum_required(VERSION 3.10)
 project (hello_cmake)
 
 # Add an executable
-add_executable(hello hello.c)
+add_executable(hello C-Example/hello.c)
