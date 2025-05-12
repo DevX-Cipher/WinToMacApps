@@ -55,7 +55,7 @@ MacCross/
 
 ## Example: Environment Variables Setup (Required for Qt)
 
-Before using the Qt manual build script, set the following environment variables:
+Before using the Qt manual build script, set the following environment variables example:
 
 ```cmd
 set QT_DIR=F:\Qt\6.7.3\macos
