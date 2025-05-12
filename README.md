@@ -123,12 +123,13 @@ Want Swift? Coming soon
 
 ---
 
-##  License & Legal Note
+# License & Legal Note
 
-This project is provided for educational use only. Redistribution of the macOS SDK is **not permitted** by Apple’s license. You must extract it yourself from a macOS system or download it.
+This project is licensed under the **MIT License** (with a non-commercial use clause).  
+See the [LICENSE](./LICENSE) file for more details.
 
 ---
 
 ##  Feedback?
 
-If you found this project helpful, consider sharing your thoughts by opening an issue with suggestions or improvements. Contributions are always welcome—feel free to submit a pull request!
+If you found this project helpful, please feel free to share your thoughts by opening an issue with suggestions or improvements. Contributions are always welcome—feel free to submit a pull request!
