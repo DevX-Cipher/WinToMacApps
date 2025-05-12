@@ -1,20 +1,4 @@
 @echo off
-
-:: Check if QT_ENV_VARIABLE is set
-if not defined QT_ENV_VARIABLE (
-    echo ERROR: QT_ENV_VARIABLE is not set. Please set it before running this script.
-    echo Example: setx QT_ENV_VARIABLE F:\Qt\6.7.3\macos
-    exit /b 1
-)
-
-:: Assign and verify Qt directory
-set QT_DIR=%QT_ENV_VARIABLE%
-if not exist "%QT_DIR%" (
-    echo ERROR: Qt directory %QT_DIR% does not exist!
-    exit /b 1
-)
-echo Using QT_DIR=%QT_DIR%
-
 :: Check if MACOSX_SDK_PATH is set
 if not defined MACOSX_SDK_PATH (
     echo ERROR: MACOSX_SDK_PATH is not set. Please set it before running this script.
@@ -49,6 +33,7 @@ if not exist "HelloWorldApp.app\Contents\MacOS" (
     exit /b 1
 )
 
+set MACOSX_DEPLOYMENT_TARGET=11.0
 echo [SUCCESS] All necessary directories were successfully created!
 
 :: Compile using Clang for macOS
@@ -57,7 +42,7 @@ clang -target x86_64-apple-darwin ^
         -mmacosx-version-min=%MACOSX_DEPLOYMENT_TARGET% ^
         -fuse-ld=lld ^
 		-framework Cocoa ^
-		AppDelegate.m main.m ^
+		ObjC-Example\AppDelegate.m ObjC-Example\main.m ^
 		-o HelloWorldApp.app/Contents/MacOS/HelloWorldApp
 
 if errorlevel 1 (
