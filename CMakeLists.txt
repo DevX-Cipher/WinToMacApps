@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.15)
 
 # Set the project name and supported languages
-project(MyMultiLangApp LANGUAGES C OBJC)
+project(MyMultiLangApp LANGUAGES C OBJC CXX)
 
 # Specify the path to the custom macOS toolchain file (for cross-compilation or custom settings)
 set(CMAKE_TOOLCHAIN_FILE ${CMAKE_CURRENT_SOURCE_DIR}/macosx-toolchain.cmake)
