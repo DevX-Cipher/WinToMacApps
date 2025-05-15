@@ -1,14 +1,14 @@
 @echo off
 
 :: Check if QT_ENV_VARIABLE is set
-if not defined QT_ENV_VARIABLE (
-    echo ERROR: QT_ENV_VARIABLE is not set. Please set it before running this script.
-    echo Example: setx QT_ENV_VARIABLE F:\Qt\6.7.3\macos
+if not defined QT_MACOS (
+    echo ERROR: QT_MACOS is not set. Please set it before running this script.
+    echo Example: setx QT_MACOS F:\Qt\6.7.3\macos
     exit /b 1
 )
 
 :: Assign and verify Qt directory
-set QT_DIR=%QT_ENV_VARIABLE%
+set QT_DIR=%QT_MACOS%
 if not exist "%QT_DIR%" (
     echo ERROR: Qt directory %QT_DIR% does not exist!
     exit /b 1
@@ -16,9 +16,9 @@ if not exist "%QT_DIR%" (
 echo Using QT_DIR=%QT_DIR%
 
 :: Check if MACOSX_SDK_PATH is set
-if not defined MACOSX_SDK_PATH (
-    echo ERROR: MACOSX_SDK_PATH is not set. Please set it before running this script.
-    echo Example: setx MACOSX_SDK_PATH F:\MacOs-Stuff\MacOSX14.5.sdk
+if not defined MACOSX_SDK (
+    echo ERROR: MACOSX_SDK is not set. Please set it before running this script.
+    echo Example: setx MACOSX_SDK F:\MacOs-Stuff\MacOSX14.5.sdk
     exit /b 1
 )
 
