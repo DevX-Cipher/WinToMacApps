@@ -57,3 +57,34 @@ set_target_properties(HelloWorldAppC PROPERTIES
     MACOSX_BUNDLE TRUE
     RESOURCE "${CMAKE_CURRENT_SOURCE_DIR}/resources/c"  # Optional: Add resources if any
 )
+
+# ----------------------------------------------------------------------------
+# Qt-based Console Application Bundle: QtHelloWorldApp.app
+# ----------------------------------------------------------------------------
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_AUTOMOC OFF)
+set(CMAKE_AUTORCC OFF)
+set(CMAKE_AUTOUIC OFF)
+
+set(Qt6_BUILD_SHARED_LIBS OFF)
+find_package(Qt6 REQUIRED COMPONENTS Core CONFIG)
+
+set(QT_SOURCES Qt-Example/main.cpp)
+add_executable(QtHelloWorldApp MACOSX_BUNDLE ${QT_SOURCES})
+
+# Configure bundle properties for the Qt application
+set_target_properties(QtHelloWorldApp PROPERTIES
+    MACOSX_BUNDLE_GUI_IDENTIFIER "com.example.QtHelloWorld"
+    MACOSX_BUNDLE_BUNDLE_VERSION ${APP_VERSION}
+    MACOSX_BUNDLE_SHORT_VERSION_STRING ${APP_SHORT_VERSION}
+    MACOSX_BUNDLE TRUE
+    # Optional: Add resources specific to the Qt app if any
+    # RESOURCE "${CMAKE_CURRENT_SOURCE_DIR}/resources/qt"
+)
+
+target_link_libraries(QtHelloWorldApp PRIVATE
+    Qt6::Core
+    "-framework Foundation"
+)
