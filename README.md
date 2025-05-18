@@ -46,7 +46,6 @@ MacCross/
 ├── Qt-Example/
 │   ├── main.cpp
 ├── macosx-toolchain.cmake
-├── build-Objc.bat         # Legacy/manual build script (Objective-C – optional)
 ├── build-Qt.bat           # Legacy/manual build script (Qt – optional)
 ├── build/                 # Created during build
 ```
