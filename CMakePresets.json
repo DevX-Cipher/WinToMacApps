@@ -13,7 +13,7 @@
       },
       "environment": {
         "CMAKE_VERBOSE_MAKEFILE": "ON",
-        "MACOSX_SDK": "${sourceDir}/SDK/macos13-sdk"
+        "MACOSX_SDK": "${sourceDir}/SDK/MacOSX13.sdk"
       }
     },
     {
