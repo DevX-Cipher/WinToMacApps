@@ -17,19 +17,24 @@ endif()
 set(ENV{CFLAGS} "")
 set(ENV{CXXFLAGS} "")
 
-# validate MACOSX_SDK environment variable
+# Use the deployment target from presets
+if(NOT DEFINED CMAKE_OSX_DEPLOYMENT_TARGET)
+    message(FATAL_ERROR "CMAKE_OSX_DEPLOYMENT_TARGET is not set! Ensure you select a preset with the correct macOS version.")
+endif()
+set(CMAKE_OSX_DEPLOYMENT_TARGET "${CMAKE_OSX_DEPLOYMENT_TARGET}")
+
+# Use the SDK path from the preset's environment
 if(NOT DEFINED ENV{MACOSX_SDK})
-    message(FATAL_ERROR "MACOSX_SDK environment variable is not set! Set it to the macOS SDK path (e.g., set MACOSX_SDK=C:\\path\\to\\macos-sdk in Windows CMD).")
+    message(FATAL_ERROR "MACOSX_SDK environment variable is not set! Ensure it is defined in the preset.")
 endif()
-if(NOT EXISTS "$ENV{MACOSX_SDK}")
-    message(FATAL_ERROR "MACOSX_SDK path '$ENV{MACOSX_SDK}' does not exist!")
-endif()
-
-# Set macOS settings
 set(CMAKE_OSX_SYSROOT "$ENV{MACOSX_SDK}")
-set(CMAKE_OSX_DEPLOYMENT_TARGET "11.0")
-set(CMAKE_OSX_ARCHITECTURES "x86_64")
 
+# Adjust architectures dynamically
+if(CMAKE_OSX_DEPLOYMENT_TARGET VERSION_LESS "11.0")
+    set(CMAKE_OSX_ARCHITECTURES "x86_64") 
+else()
+    set(CMAKE_OSX_ARCHITECTURES "x86_64")
+endif()
 
 # Construct the target triple directly
 set(target_triple "${CMAKE_OSX_ARCHITECTURES}-apple-darwin${CMAKE_OSX_DEPLOYMENT_TARGET}")
