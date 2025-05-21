@@ -138,19 +138,13 @@ Hello, world!
 
 ---
 
-## 🛠️ Tools
-
-This repository includes the **Image to ICNS** converter — a handy tool to generate macOS icon files (`.icns`) from PNG or JPEG images, designed to work seamlessly on Windows.
-
-- Convert images to `.icns` format for your macOS apps
-- Supports PNG and JPEG inputs with transparency preserved
-- Simple CLI usage: `imagetoicns.exe input.png output.icns`
-
-For more details, source code, and releases, visit:  
-[Image to ICNS GitHub Repository](https://github.com/modz2014/ImageToIcns)
-
 ---
 
+## 🛠️ Tools
+
+- [Image to ICNS](https://github.com/yourusername/imagetoicns): Convert PNG or JPEG images to macOS `.icns` files on Windows.
+
+---
 
 
 
