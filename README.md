@@ -162,6 +162,3 @@ Contributions are welcome — feel free to submit a pull request!
 
 ---
 
-## 🔍 Keywords
-
-macOS cross-compile • build macOS apps on Windows • Cocoa from Windows • Qt macOS SDK Windows • Clang CMake macOS • create macOS .app without Xcode • Ninja toolchain • Objective-C on Windows
