@@ -138,6 +138,16 @@ Hello, world!
 
 ---
 
+---
+
+## 🛠️ Tools
+
+- [Image to ICNS](https://github.com/modz2014/ImageToIcns): Convert PNG or JPEG images to macOS `.icns` files on Windows.
+
+---
+
+
+
 ## 📜 License & Legal Note
 
 This project is licensed under the MIT License (with a non-commercial use clause).  
