@@ -142,7 +142,7 @@ Hello, world!
 
 ## 🛠️ Tools
 
-- [Image to ICNS](https://github.com/yourusername/imagetoicns): Convert PNG or JPEG images to macOS `.icns` files on Windows.
+- [Image to ICNS](https://github.com/modz2014/ImageToIcns): Convert PNG or JPEG images to macOS `.icns` files on Windows.
 
 ---
 
