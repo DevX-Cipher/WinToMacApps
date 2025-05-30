@@ -6,6 +6,8 @@
 
 Build native macOS applications — including Cocoa and Qt-based GUI apps — **entirely on Windows**, using Clang, CMake, and Ninja.
 
+## xar archive coming to windows soon
+
 ✅ **No Mac required to build.** Just transfer and run the output on a real Mac.
 
 🖱️ New: Use the built-in Toolchain GUI to select your macOS SDK, configure deployment targets, and generate CMake projects.
