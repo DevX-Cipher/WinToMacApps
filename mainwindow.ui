@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>500</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>WinToMac Toolchain Configurator</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QLabel" name="label_sourceDir">
+      <property name="text">
+       <string>Source Directory:</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="sourceDirLayout">
+      <item>
+       <widget class="QLineEdit" name="sourceDirEdit"/>
+      </item>
+      <item>
+       <widget class="QPushButton" name="browseSourceDirBtn">
+        <property name="text">
+         <string>Browse...</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QLabel" name="label_sdkPath">
+      <property name="text">
+       <string>MacOS SDK Path:</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="sdkPathLayout">
+      <item>
+       <widget class="QLineEdit" name="sdkPathEdit"/>
+      </item>
+      <item>
+       <widget class="QPushButton" name="browseSdkBtn">
+        <property name="text">
+         <string>Browse...</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+
+    <!-- Added Multiple SDKs label and multi-line text edit -->
+    <item>
+     <widget class="QLabel" name="label_multiSdk">
+      <property name="text">
+       <string>Multiple SDK Paths (one per line, optional):</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QTextEdit" name="multiSdkEdit"/>
+    </item>
+
+    <item>
+     <widget class="QLabel" name="label_clangPath">
+      <property name="text">
+       <string>Clang Path:</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="clangPathLayout">
+      <item>
+       <widget class="QLineEdit" name="clangPathEdit"/>
+      </item>
+      <item>
+       <widget class="QPushButton" name="browseClangBtn">
+        <property name="text">
+         <string>Browse...</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QLabel" name="label_arch">
+      <property name="text">
+       <string>Architecture:</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QComboBox" name="archCombo">
+      <item>
+       <property name="text">
+        <string>x86_64</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>arm64</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="label_deployTarget">
+      <property name="text">
+       <string>Deployment Target (e.g., 11.0):</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="deployTargetEdit"/>
+    </item>
+    <item>
+     <widget class="QPushButton" name="generateToolchainBtn">
+      <property name="text">
+       <string>Generate Toolchain File</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="label_log">
+      <property name="text">
+       <string>Log:</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QTextEdit" name="logOutput"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>500</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
