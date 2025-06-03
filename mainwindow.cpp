@@ -48,7 +48,7 @@ void MainWindow::generateToolchain()
     bool success = gen.writeToolchainFile(
         toolchainFilePath,
         ui.sdkPathEdit->text(),
-        ui.clangPathEdit->text(),  // <-- Fixed: added clangPath
+        ui.clangPathEdit->text(),  
         ui.archCombo->currentText(),
         ui.deployTargetEdit->text()
         );
