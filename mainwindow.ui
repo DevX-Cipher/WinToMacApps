@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>500</width>
-    <height>600</height>
+    <height>601</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -57,19 +57,6 @@
       </item>
      </layout>
     </item>
-
-    <!-- Added Multiple SDKs label and multi-line text edit -->
-    <item>
-     <widget class="QLabel" name="label_multiSdk">
-      <property name="text">
-       <string>Multiple SDK Paths (one per line, optional):</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QTextEdit" name="multiSdkEdit"/>
-    </item>
-
     <item>
      <widget class="QLabel" name="label_clangPath">
       <property name="text">
@@ -84,6 +71,27 @@
       </item>
       <item>
        <widget class="QPushButton" name="browseClangBtn">
+        <property name="text">
+         <string>Browse...</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QLabel" name="label_qt6Path">
+      <property name="text">
+       <string>Qt6 Installation Path (macOS target):</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="qt6PathLayout">
+      <item>
+       <widget class="QLineEdit" name="qt6PathEdit"/>
+      </item>
+      <item>
+       <widget class="QPushButton" name="browseQt6Btn">
         <property name="text">
          <string>Browse...</string>
         </property>

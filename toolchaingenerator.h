@@ -13,7 +13,9 @@ public:
                             const QString &sdkPath,
                             const QString &clangPath,
                             const QString &arch,
-                            const QString &deployTarget);
+                            const QString &deployTarget,
+                            const QString &qt6Path);
+
 };
 
 #endif // TOOLCHAINGENERATOR_H

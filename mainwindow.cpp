@@ -8,8 +8,10 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui.setupUi(this);
 
+    // Connect the generate toolchain button
     connect(ui.generateToolchainBtn, &QPushButton::clicked, this, &MainWindow::generateToolchain);
 
+    // Connect browse button for Source Directory
     connect(ui.browseSourceDirBtn, &QPushButton::clicked, this, [this]() {
         QString dir = QFileDialog::getExistingDirectory(this, tr("Select Source Directory"), ui.sourceDirEdit->text());
         if (!dir.isEmpty()) {
@@ -17,6 +19,7 @@ MainWindow::MainWindow(QWidget *parent)
         }
     });
 
+    // Connect browse button for MacOS SDK Path
     connect(ui.browseSdkBtn, &QPushButton::clicked, this, [this]() {
         QString dir = QFileDialog::getExistingDirectory(this, tr("Select SDK Directory"), ui.sdkPathEdit->text());
         if (!dir.isEmpty()) {
@@ -24,10 +27,19 @@ MainWindow::MainWindow(QWidget *parent)
         }
     });
 
+    // Connect browse button for Clang Path
     connect(ui.browseClangBtn, &QPushButton::clicked, this, [this]() {
         QString dir = QFileDialog::getExistingDirectory(this, tr("Select Clang Directory"), ui.clangPathEdit->text());
         if (!dir.isEmpty()) {
             ui.clangPathEdit->setText(dir);
+        }
+    });
+
+    // --- NEW: Connect browse button for Qt6 Installation Path ---
+    connect(ui.browseQt6Btn, &QPushButton::clicked, this, [this]() {
+        QString dir = QFileDialog::getExistingDirectory(this, tr("Select Qt6 Installation Directory (macOS)"), ui.qt6PathEdit->text());
+        if (!dir.isEmpty()) {
+            ui.qt6PathEdit->setText(dir);
         }
     });
 }
@@ -47,11 +59,13 @@ void MainWindow::generateToolchain()
     ToolchainGenerator gen;
     bool success = gen.writeToolchainFile(
         toolchainFilePath,
-        ui.sdkPathEdit->text(),
-        ui.clangPathEdit->text(),  
-        ui.archCombo->currentText(),
-        ui.deployTargetEdit->text()
+        ui.sdkPathEdit->text(),       // sdkPath
+        ui.clangPathEdit->text(),     // clangPath
+        ui.archCombo->currentText(),  // arch
+        ui.deployTargetEdit->text(),  // deployTarget
+        ui.qt6PathEdit->text()        // qt6Path
         );
+
 
     if (success) {
         ui.logOutput->append("Toolchain file created at: " + toolchainFilePath);
@@ -60,7 +74,6 @@ void MainWindow::generateToolchain()
         QMessageBox::warning(this, "Error", "Could not write toolchain.cmake file.");
     }
 }
-
 
 
 /*

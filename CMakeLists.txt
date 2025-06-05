@@ -10,7 +10,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Point to your static Qt installation
-#set(CMAKE_PREFIX_PATH "F:/Qt/6.7.3-static") # Adjust this path
+set(CMAKE_PREFIX_PATH "F:/Qt/6.7.3-static") # Adjust this path
 
 find_package(Qt6 REQUIRED COMPONENTS Widgets Core Gui)
 

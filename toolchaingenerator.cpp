@@ -7,7 +7,8 @@ bool ToolchainGenerator::writeToolchainFile(const QString &filePath,
                                             const QString &sdkPath,
                                             const QString &clangPath,
                                             const QString &arch,
-                                            const QString &deployTarget)
+                                            const QString &deployTarget,
+                                            const QString &qt6Path)
 {
     QFile file(filePath);
     if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
@@ -24,10 +25,13 @@ bool ToolchainGenerator::writeToolchainFile(const QString &filePath,
     QString clangDir = QDir(clangPath).absolutePath();
     QString clangExe = QDir(clangDir).filePath("clang.exe").replace("\\", "/");
     QString clangxxExe = QDir(clangDir).filePath("clang++.exe").replace("\\", "/");
+    QString qt6MacDir = QDir(qt6Path).absolutePath().replace("\\", "/");
 
     out << "set(CMAKE_C_COMPILER \"" << clangExe << "\")\n";
     out << "set(CMAKE_CXX_COMPILER \"" << clangxxExe << "\")\n";
     out << "set(CMAKE_OBJC_COMPILER \"" << clangExe << "\")\n";
+    out << "set(CMAKE_PREFIX_PATH \"" << qt6MacDir << "\" CACHE PATH \"Path to Qt6 installation for macOS\")\n";
+
     out << "if(NOT EXISTS \"${CMAKE_C_COMPILER}\" OR NOT EXISTS \"${CMAKE_CXX_COMPILER}\")\n";
     out << "    message(FATAL_ERROR \"Clang compilers not found at specified path.\")\n";
     out << "endif()\n\n";
